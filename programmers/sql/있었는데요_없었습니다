@@ -1,0 +1,6 @@
+// https://programmers.co.kr/learn/courses/30/lessons/59043
+
+SELECT a.ANIMAL_ID, a.NAME
+from ANIMAL_INS a left join ANIMAL_OUTS b on a.ANIMAL_ID=b.ANIMAL_ID
+where a.DATETIME>b.DATETIME
+order by a.DATETIME asc;
