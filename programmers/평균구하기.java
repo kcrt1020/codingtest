@@ -10,5 +10,6 @@ public class 평균구하기 {
         }
 
         return sum / arr.length;
+
     }
 }
