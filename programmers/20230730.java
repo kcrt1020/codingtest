@@ -54,3 +54,40 @@ class Solution {
         return answer;
     }
 }
+
+
+// 원소들의 곱과 합
+
+class Solution {
+    public int solution(int[] num_list) {
+        int sum = 0;
+        int mul = 1;
+        for(int i=0; i<num_list.length; i++)
+        {
+            sum += num_list[i];
+            mul *= num_list[i];
+        }
+        sum = sum*sum;
+        
+        return mul<sum?1:0;
+    }
+}
+
+
+// 이어 붙인 수
+
+class Solution {
+    public int solution(int[] num_list) {
+        int answer = 0;
+        String one="";
+        String two="";
+        for(int i=0; i<num_list.length; i++){
+            if(num_list[i]%2==0){
+                two+=num_list[i];
+            }
+            else one+=num_list[i];
+        }
+        answer=Integer.parseInt(two)+Integer.parseInt(one);
+        return answer;
+    }
+}
