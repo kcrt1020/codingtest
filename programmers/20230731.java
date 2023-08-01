@@ -33,3 +33,26 @@ class Solution {
         return n;
     }
 }
+
+
+// 수 조작하기 2
+class Solution {
+    public String solution(int[] numLog) {
+        String answer = "";
+        String str ="";
+        int j=0;
+        
+        Scanner sc = new Scanner(System.in);
+        for(int i=0; i<numLog.length; i++){
+            
+            if(i==0) j=0;
+            else j=i-1;
+            
+            if(numLog[i] - numLog[j] == 1)answer+="w";
+            else if(numLog[i] - numLog[j] == -1)answer+="s";
+            else if(numLog[i] - numLog[j] == 10)answer+="d";
+            else if(numLog[i] - numLog[j] == -10)answer+="a";
+        }
+        return answer;
+    }
+}
