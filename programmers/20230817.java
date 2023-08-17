@@ -73,3 +73,53 @@ class Solution {
         return list.stream().mapToInt(i->i).toArray();
     }
 }
+
+
+// 배열 만들기 4
+
+// 런타임 오류 코드 
+class Solution {
+    public int[] solution(int[] arr) {
+        List<Integer> stk = new ArrayList<>();
+        
+        for(int i=0; i<arr.length; i++){
+            if(stk.isEmpty()==true){
+                stk.add(arr[i]);
+            }
+            else if(stk.get(stk.size()-1)<arr[i]){
+                stk.add(arr[i]);
+            }
+            else {
+                stk.remove(stk.size()-1);
+                stk.add(arr[i]);
+            }
+        }
+        
+        return stk.stream().mapToInt(i->i).toArray();
+    }
+}
+
+// 성공
+class Solution {
+    public int[] solution(int[] arr) {
+        ArrayList<Integer> stack = new ArrayList<Integer>();
+        
+        int idx = 0;
+        while(idx < arr.length) {
+            if(stack.isEmpty() || stack.get(stack.size()-1) < arr[idx]) {
+                stack.add(arr[idx]);
+                idx++;
+            }
+            else if(stack.get(stack.size()-1) >= arr[idx]) {
+                stack.remove(stack.size()-1);
+            }
+        }
+        
+        int[] stk = new int[stack.size()];
+        for(int i = 0; i < stk.length; i++) {
+            stk[i] = stack.get(i);
+        }
+        
+        return stk;
+    }
+}
