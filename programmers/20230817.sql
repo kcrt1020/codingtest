@@ -29,3 +29,14 @@ SELECT datetime as "시간" from animal_ins where datetime in (select max(dateti
 
 // 최솟값 구하기
 SELECT datetime as "시간" from animal_ins where datetime in (select min(datetime) from animal_ins);
+
+// 동물 수 구하기
+SELECT count(*) from animal_ins;
+
+// 중복 제거하기
+select count(*) from (SELECT distinct name from animal_ins where name is not null);
+
+// 성분으로 구분한 아이스크림 총 주문량
+SELECT ii.INGREDIENT_TYPE, sum(fh.TOTAL_ORDER) 
+from FIRST_HALF fh, ICECREAM_INFO ii 
+where fh.flavor=ii.flavor group by ii.ingredient_type;
