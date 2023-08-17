@@ -38,3 +38,18 @@ class Solution {
         return list.isEmpty()? new int[] {-1} : list.stream().mapToInt(i->i).toArray();
     }
 }
+
+
+// 카운트 업
+
+class Solution {
+    public int[] solution(int start, int end) {
+        int[] answer = new int [end-start+1];
+        int i=0;
+        for(int j=start; j<=end; j++){
+            answer[i]=j;
+            i++;
+            }
+        return answer;
+    }
+}
