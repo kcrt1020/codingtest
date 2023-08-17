@@ -20,3 +20,12 @@ select name from (SELECT name from animal_ins order by datetime) where rownum=1;
 SELECT count(*) as "user" from user_info 
 where joined >= to_date('2021-01-01','YYYY-MM-DD') and joined < to_date('2022-01-01','YYYY-MM-DD')
 and age>=20 and age<=29;
+
+// 가격이 제일 비싼 식품의 정보 출력하기
+SELECT * from food_product where price in (select max(price) from food_product);
+
+// 최댓값 구하기
+SELECT datetime as "시간" from animal_ins where datetime in (select max(datetime) from animal_ins);
+
+// 최솟값 구하기
+SELECT datetime as "시간" from animal_ins where datetime in (select min(datetime) from animal_ins);
