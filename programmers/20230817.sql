@@ -40,3 +40,9 @@ select count(*) from (SELECT distinct name from animal_ins where name is not nul
 SELECT ii.INGREDIENT_TYPE, sum(fh.TOTAL_ORDER) 
 from FIRST_HALF fh, ICECREAM_INFO ii 
 where fh.flavor=ii.flavor group by ii.ingredient_type;
+
+// 고양이와 개는 몇 마리 있을까
+SELECT animal_type, count(*) from ANIMAL_INS group by animal_type order by animal_type;
+
+// 동명 동물 수 찾기
+SELECT name, count(*) from ANIMAL_INS group by name having count(name)>=2 order by name;
