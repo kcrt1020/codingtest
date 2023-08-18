@@ -13,8 +13,14 @@ case when SEX_UPON_INTAKE like '%Neutered%' or SEX_UPON_INTAKE like '%Spayed%' t
 from ANIMAL_INS 
 order by ANIMAL_ID;
 
+// NULL 처리하기
+SELECT ANIMAL_TYPE, case when NAME is null then 'No name' else name end as name, SEX_UPON_INTAKE
+from ANIMAL_INS order by ANIMAL_ID;
 
+// DATETIME에서 DATE로 형 변환
+SELECT ANIMAL_ID, NAME, to_char(DATETIME,'YYYY-MM-DD') from ANIMAL_INS order by animal_id;
 
-
-
-
+// 3월에 태어난 여성 회원 목록 출력하기
+SELECT MEMBER_ID, MEMBER_NAME, GENDER, to_char(DATE_OF_BIRTH, 'YYYY-MM-DD') from MEMBER_PROFILE 
+where TLNO is not null and to_char(DATE_OF_BIRTH,'MM')='03' and gender='W'
+order by MEMBER_ID;
