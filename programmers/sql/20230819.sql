@@ -24,3 +24,14 @@ SELECT ANIMAL_ID, NAME, to_char(DATETIME,'YYYY-MM-DD') from ANIMAL_INS order by 
 SELECT MEMBER_ID, MEMBER_NAME, GENDER, to_char(DATE_OF_BIRTH, 'YYYY-MM-DD') from MEMBER_PROFILE 
 where TLNO is not null and to_char(DATE_OF_BIRTH,'MM')='03' and gender='W'
 order by MEMBER_ID;
+
+// 카테고리 별 상품 개수 구하기
+SELECT substr(PRODUCT_CODE,1,2) as CATEGORY, count(*) as PRODUCTS
+from PRODUCT 
+group by substr(PRODUCT_CODE, 1, 2)
+order by CATEGORY;
+
+
+
+
+
