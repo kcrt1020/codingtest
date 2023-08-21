@@ -35,3 +35,8 @@ group by CAR_ID
 having round(avg((END_DATE)-(START_DATE)+1),1) >= 7
 order by round(avg((END_DATE)-(START_DATE)+1),1) desc, CAR_ID desc;
 
+// 조건에 부합하는 중고거래 상태 조회하기
+SELECT BOARD_ID, WRITER_ID, TITLE, PRICE,
+case when STATUS = 'SALE' then '판매중' when STATUS = 'RESERVED' then '예약중' else '거래완료' end as STATUS
+from USED_GOODS_BOARD where to_char(CREATED_DATE,'YYYY-MM-DD')='2022-10-05'
+order by BOARD_ID desc;
