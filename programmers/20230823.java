@@ -73,6 +73,7 @@ class Solution {
 
 
 // 글자 이어 붙여 문자열 만들기
+
 class Solution {
     public String solution(String my_string, int[] index_list) {
         String answer = "";
@@ -80,5 +81,19 @@ class Solution {
             answer += my_string.charAt(index_list[i]);
         }
         return answer;
+    }
+}
+
+
+// 9로 나눈 나머지
+
+class Solution {
+    public int solution(String number) {
+        int sum = 0;
+        
+        for(int i=0; i<number.length(); i++){
+            sum += Character.getNumericValue(number.charAt(i));
+        }
+        return sum%9;
     }
 }
