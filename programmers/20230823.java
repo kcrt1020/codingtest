@@ -235,3 +235,72 @@ class Solution {
         else return false;
     }
 }
+
+
+// 문자열 내림차순으로 배치하기
+
+// class Solution {
+//     public String solution(String s) {
+//         char[] arr = new char[s.length()];
+        
+//         for(int i=0; i<arr.length; i++){
+//             arr[i]=s.charAt(i);
+//         }
+//         Arrays.sort(arr);
+//         reverseCharArray(arr);
+        
+//         String answer="";
+        
+//         for(int i=0; i<arr.length; i++){
+//             answer+=arr[i];    
+        
+//         }
+//         return answer;
+//     }
+    
+//     public static void reverseCharArray(char[] arr) {
+//     int left = 0;
+//     int right = arr.length - 1;
+
+//     while (left < right) {
+//         char temp = arr[left];
+//         arr[left] = arr[right];
+//         arr[right] = temp;
+//         left++;
+//         right--;
+//     }
+// }
+// }
+
+class Solution {
+    public String solution(String s) {
+        char[] arr = new char[s.length()];
+        
+        for(int i=0; i<arr.length; i++){
+            arr[i]=s.charAt(i);
+        }
+        Arrays.sort(arr);
+        
+        return new StringBuilder(new String(arr)).reverse().toString();
+    }
+}
+
+
+// 문자열 다루기 기본
+
+class Solution {
+    public boolean solution(String s) {
+        boolean answer = true;
+        
+        if(s.length()==4 || s.length()==6) {
+            for(int i=0; i<s.length(); i++) {
+                if(Character.isDigit(s.charAt(i))==false){
+                    answer=false;
+                    break;
+                } 
+            }  
+        }
+        else answer=false;
+        return answer;
+    }
+}
