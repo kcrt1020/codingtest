@@ -97,3 +97,23 @@ class Solution {
         return sum%9;
     }
 }
+
+
+// 문자열 여러 번 뒤집기
+
+class Solution {
+    public String solution(String my_string, int[][] queries) {
+        
+        StringBuilder builder = new StringBuilder(my_string);
+        for(int i=0; i<queries.length; i++){
+            // char temp = builder.charAt(queries[i][0]);
+            // builder.setCharAt(queries[i][0], builder.charAt(queries[i][1]));
+            // builder.setCharAt(queries[i][1], temp);
+            // System.out.println(builder.toString());
+            
+            String reverse = new StringBuilder(builder.substring(queries[i][0],queries[i][1]+1)).reverse().toString();
+            builder.replace(queries[i][0],queries[i][1]+1,reverse);
+            }
+        return builder.toString();
+    }
+}
