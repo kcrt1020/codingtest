@@ -345,3 +345,67 @@ class Solution {
         return answer;
     }
 }
+
+
+// 수박수박수박수박수박수?
+class Solution {
+    public String solution(int n) {
+        String answer = "";
+        for(int i=0; i<n; i++){
+            if(i%2==0) answer+="수";
+            else answer+="박";
+        }
+        return answer;
+    }
+}
+
+
+// 문자열을 정수로 바꾸기
+
+class Solution {
+    public int solution(String s) {
+        return Integer.parseInt(s);
+    }
+}
+
+
+// 시저 암호
+
+class Solution {
+    public String solution(String s, int n) {
+        String answer = "";
+        for(int i=0; i<s.length(); i++){
+            if(s.charAt(i)==' ') 
+            {
+                answer+=" ";
+                continue;
+            }
+            
+            int ch = (int)s.charAt(i);
+
+            if(ch>=65 && ch<=90) {
+                if(ch+n>90) answer+=(char)ch-26+n;
+                else answer+=(char)(ch+n);
+            }
+            
+            else if(ch>=97 && ch<=122){
+                if(ch+n>122) answer+=(char)(ch-26+n);
+                else answer+=(char)(ch+n);
+            }
+        }
+        return answer;
+    }
+}
+
+
+// 약수의 합
+
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        for(int i=1; i<=n; i++){
+            if(n%i==0) answer+=i;
+        }
+        return answer;
+    }
+}
