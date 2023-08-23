@@ -151,3 +151,22 @@ public class Solution {
         return result;
     }
 }
+
+
+// 나누어 떨어지는 숫자 배열
+
+class Solution {
+    public int[] solution(int[] arr, int divisor) {
+        
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        
+        for(int i=0; i<arr.length; i++){
+            if(arr[i]%divisor==0){
+                list.add(arr[i]);
+            }
+        }
+        Collections.sort(list);
+        
+        return list.isEmpty() ? new int[] {-1} : list.stream().mapToInt(i->i).toArray();
+    }
+}
