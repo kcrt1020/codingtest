@@ -170,3 +170,49 @@ class Solution {
         return list.isEmpty() ? new int[] {-1} : list.stream().mapToInt(i->i).toArray();
     }
 }
+
+
+// 두 정수 사이의 합
+
+class Solution {
+    public long solution(int a, int b) {
+        long answer = 0;
+        
+        if(a<b){
+            while(a<=b){
+                answer+=a;
+                a++;
+            }
+        }
+        else if(b<a){
+            while(b<=a){
+                answer+=b;
+                b++;
+            }
+        }
+        else answer=a;
+        
+        return answer;
+    }
+}
+
+
+// 문자열 내 마음대로 정렬하기
+
+class Solution {
+    public String[] solution(String[] strings, int n) {
+        String[] answer = new String[strings.length];
+        ArrayList<String> list = new ArrayList<>();
+        
+        for(int i=0; i<strings.length; i++){
+            list.add(""+strings[i].charAt(n) + strings[i]);
+        }
+        
+        Collections.sort(list);
+        
+        for(int i=0; i<strings.length; i++){
+            answer[i] = list.get(i).substring(1, list.get(i).length());
+        }
+        return answer;
+    }
+}
