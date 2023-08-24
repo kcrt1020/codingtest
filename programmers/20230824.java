@@ -145,3 +145,87 @@ class Solution {
         return lcm;
     }
 }
+
+
+// x만큼 간격이 있는 n개의 숫자
+
+class Solution {
+    public long[] solution(int x, int n) {
+        long[] answer = new long[n];
+        
+        answer[0]=x;
+        
+        for(int i=1; i<n; i++){
+            answer[i]=answer[i-1]+x;
+        }
+        return answer;
+    }
+}
+
+
+// 콜라츠 추측
+
+class Solution {
+    public int solution(int num) {
+        int answer = 0;
+        long n=num;
+        if (n==1){
+            return 0;
+        }
+        
+        while(n!=1){
+            if(n%2==0) n=n/2;
+            else n=(n*3)+1;
+            
+            answer++;
+            if(answer>=500) return -1;
+        }
+        
+        return answer;
+    }
+}
+
+
+// 하샤드 수
+
+class Solution {
+    public boolean solution(int x) {
+        
+        // 자릿수 합
+        int sum=0;
+        int n=x;
+        while(n>0){
+            int digit = n%10;
+            sum+=digit;
+            n/=10;
+        }
+        
+        return x%sum==0? true:false;
+    }
+}
+
+
+// 핸드폰 번호 가리기
+
+class Solution {
+    public String solution(String phone_number) {
+        String str = phone_number.substring(0,phone_number.length()-4);
+        return phone_number.replaceAll(str,"*".repeat(str.length()));
+    }
+}
+
+
+// 행렬의 덧셈
+
+class Solution {
+    public int[][] solution(int[][] arr1, int[][] arr2) {
+        int[][] answer = new int[arr1.length][arr1[0].length];
+        
+        for(int i=0; i<arr1.length; i++){
+            for(int j=0; j<arr1[i].length; j++){
+                answer[i][j]=arr1[i][j]+arr2[i][j];
+            }
+        }
+        return answer;
+    }
+}
