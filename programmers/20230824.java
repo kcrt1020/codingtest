@@ -308,3 +308,100 @@ class Solution {
         return answer;
     }
 }
+
+
+// 숫자 짝꿍
+
+class Solution {
+    public String solution(String X, String Y) {
+        String answer = "";
+        
+        
+        // X
+        String[] strX = new String[X.length()];
+        
+        for(int i=0; i<X.length(); i++){
+            strX[i]=String.valueOf(X.charAt(i));
+        }
+        
+        Arrays.sort(strX);
+        
+        ArrayList<Integer> intX = new ArrayList<Integer>();
+        
+        for(String str:strX){
+            intX.add(Integer.parseInt(str));
+        }
+        
+        // Y
+        String[] strY = new String[Y.length()];
+        
+        for(int i=0; i<Y.length(); i++){
+            strY[i]=String.valueOf(Y.charAt(i));
+        }
+        
+        Arrays.sort(strY);
+        
+        ArrayList<Integer> intY = new ArrayList<Integer>();
+        
+        for(String str:strY){
+            intY.add(Integer.parseInt(str));
+        }
+        
+        int num = (intX.size()>intY.size()) ? intY.size() : intX.size();
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+        for(int i=0; i<intX.size(); i++){
+            for(int j=0; j<intY.size(); j++){
+                if(intX.get(i)==intY.get(j)){
+                    arr.add(intX.get(i));
+                    intY.remove(j);
+                    break;
+                }
+            }
+        }
+        
+        for(int i=arr.size()-1; i>=0; i--){
+            System.out.println(answer);
+            if(answer.equals("0") && arr.get(i)==0) break;
+            answer += arr.get(i);
+        }
+        
+        
+        return answer=="" ? "-1" : answer;
+    }
+}
+
+// 시간 초과
+
+class Solution {
+    public String solution(String X, String Y) {
+        String answer = "";
+        StringBuilder sb = new StringBuilder();
+        int[] arrX = new int[10];
+        int[] arrY = new int[10];
+
+        for(String a : X.split("")){
+            arrX[Integer.parseInt(a)]++; 
+        }
+
+        for(String b : Y.split("")){
+            arrY[Integer.parseInt(b)]++; 
+        }
+
+        for(int i=9; i>=0; i--){
+            if(arrX[i]>0 && arrY[i]>0){
+                int tmpInt = Math.min(arrX[i], arrY[i]);
+                for(int j=0; j<tmpInt; j++){
+                    sb.append(i);
+                }
+            }
+        }
+
+        if (sb.length()>0){
+            answer = sb.charAt(0)=='0'? "0": sb.toString();
+        } else {
+            answer = "-1";
+        }
+
+        return answer;
+    }
+}
