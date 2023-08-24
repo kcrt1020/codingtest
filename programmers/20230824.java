@@ -244,3 +244,31 @@ class Solution {
         }
     }
 }
+
+
+// 소수 만들기
+
+class Solution {
+    public int solution(int[] nums) {
+        int answer = 0;
+
+        for(int i=0; i<nums.length; i++){
+            if(i+2>=nums.length) break;
+            for(int j=i+1; j<nums.length; j++){
+                for(int k=j+1; k<nums.length; k++){
+                    int sum = nums[i]+nums[j]+nums[k];
+                    boolean tf=true;
+                    for(int h=2; h<=sum/2; h++){
+                        if(sum%h==0){
+                            tf=false;
+                            break;
+                        }
+                    }
+                    if(tf==true) answer++;
+                }
+            }
+        }
+
+        return answer;
+    }
+}
