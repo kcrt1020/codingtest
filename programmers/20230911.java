@@ -67,3 +67,16 @@ class Solution {
         return answer;
     }
 }
+
+
+// 3진법 뒤집기
+
+class Solution {
+    public int solution(int n) {
+        String str = Integer.toString(n,3);
+        StringBuffer sb = new StringBuffer(str);
+        str = sb.reverse().toString();
+        
+        return Integer.parseInt(str,3);
+    }
+}
