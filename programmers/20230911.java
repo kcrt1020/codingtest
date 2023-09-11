@@ -30,7 +30,7 @@ class Solution {
         int answer = 0;
         for(int i=0; i<absolutes.length; i++) {
             
-            answer += signs[i]==true ? absolutes[i] : absolutes[i] *(-1);
+            answer += signs[i] ? absolutes[i] : absolutes[i]*(-1);
         }
         return answer;
     }
