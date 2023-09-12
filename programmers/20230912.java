@@ -70,3 +70,60 @@ class Solution {
     }
 }
 // 2차 set
+
+
+// 모의고사
+
+class Solution {
+    public int[] solution(int[] answers) {
+        int[] one = {1,2,3,4,5};
+        int[] two = {2,1,2,3,2,4,2,5};
+        int[] three = {3,3,1,1,2,2,4,4,5,5};
+        int[] supo = {0,0,0};
+        
+        for(int i=0; i<answers.length; i++){
+            if(one[i%5]==answers[i]) supo[0]++;
+            if(two[i%8]==answers[i]) supo[1]++;
+            if(three[i%10]==answers[i]) supo[2]++;
+        }
+        
+        int max = supo[0];
+        for (int i = 1; i < supo.length; i++) {
+            if (supo[i] > max) {
+                max = supo[i];
+            }
+        }
+        
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+        
+        for(int i=0; i<supo.length; i++) {
+            if(supo[i]==max) arr.add(i+1);
+        }
+        return arr.stream().mapToInt(i->i).toArray();
+    }
+}
+
+
+// 푸드 파이트 대회
+
+class Solution {
+    public String solution(int[] food) {
+        String answer = "";
+        
+        for(int i=1; i<food.length; i++){
+            for(int j=0; j<food[i]/2; j++){
+                answer += i;
+            }
+        }
+        
+        answer +="0";
+        
+        for(int i=food.length-1; i>=1; i--){
+            for(int j=0; j<food[i]/2; j++){
+                answer += i;
+            }
+        }
+        
+        return answer;
+    }
+}
