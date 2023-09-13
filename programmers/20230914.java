@@ -15,3 +15,19 @@ class Solution {
         return answer;
     }
 }
+
+
+// 다음 큰 숫자
+
+class Solution {
+    public int solution(int n) {
+        int answer = n+1;
+        
+        while(true){
+            if((Integer.toBinaryString(n)).replace("0","").length()==(Integer.toBinaryString(answer)).replace("0","").length()) break;
+            answer++;
+        }
+        
+        return answer;
+    }
+}
