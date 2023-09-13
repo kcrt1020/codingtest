@@ -68,3 +68,57 @@ class Solution
         return answer;
     }
 }
+
+
+// 올바른 괄호
+
+class Solution {
+    boolean solution(String s) {
+        boolean answer = true;
+
+        if(s.charAt(0)!='(') answer = false;
+        if(s.charAt(s.length()-1)!=')') answer = false;
+
+        return answer;
+    }
+}
+
+class Solution {
+    boolean solution(String s) {
+        boolean answer = true;
+        int o=0;
+        int c=0;
+        if(s.charAt(0)!='(') return false;
+        if(s.charAt(s.length()-1)!=')') return false;
+        
+        for(int i=0; i<s.length(); i++){
+            if(s.charAt(i)=='(') o++;
+            if(s.charAt(i)==')') c++;
+            if(o<c) return false;
+        }
+        
+        if(o!=c) answer=false;
+        return answer;
+    }
+}
+
+
+// 이진 변환 반복하기
+
+class Solution {
+    public int[] solution(String s) {
+        int[] answer = new int[2];
+
+        while(s.length()>1){
+            int zero=0;
+            for(int i=0; i<s.length(); i++){
+                if(s.charAt(i)=='0') answer[1]++;
+                else zero++;
+                
+            }
+            s = Integer.toBinaryString(zero);
+            answer[0]++;
+        }
+        return answer;
+    }
+}
