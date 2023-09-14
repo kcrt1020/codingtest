@@ -170,3 +170,39 @@ class Solution {
         return max*n;
     }
 }
+
+
+// 합성수 찾기
+
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        for(int i=1; i<=n; i++){
+            int num=0;
+            for(int j=1; j<=i; j++){
+                num+=(i%j==0)?1:0;
+            }
+            answer+=(num>=3)?1:0;
+        }
+        return answer;
+    }
+}
+
+
+// 중복된 문자 제거
+
+class Solution {
+    public String solution(String my_string) {
+        String answer = String.valueOf(my_string.charAt(0));
+        for(int i=1; i<my_string.length(); i++){
+            int n=0;
+            for(int j=0; j<answer.length(); j++){
+                if((my_string.charAt(i))==answer.charAt(j)){
+                    n=1;
+                    break;
+                }
+            }if(n==0) answer+=String.valueOf(my_string.charAt(i));
+        }
+        return answer;
+    }
+}
