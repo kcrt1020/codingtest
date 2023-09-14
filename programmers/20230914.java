@@ -141,3 +141,12 @@ class Solution {
         return answer;
     }
 }
+
+
+// 편지
+
+class Solution {
+    public int solution(String message) {
+        return message.length()*2;
+    }
+}
