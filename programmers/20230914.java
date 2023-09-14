@@ -93,3 +93,38 @@ class Solution {
         return answer;
     }
 }
+
+
+
+// 영어 끝말잇기
+
+class Solution {
+    public int[] solution(int n, String[] words) {
+        int[] answer = new int[2];
+        int b = 0;
+        String w;
+
+        for(int i=1; i<words.length; i++){
+            w = String.valueOf(words[i-1].charAt(words[i-1].length()-1));
+            if(!(String.valueOf(words[i].charAt(0))).equals(w)) 
+            {
+                b=i;
+                break;
+            }
+            else{
+                for(int j=0; j<i; j++){
+                    if(words[i].equals(words[j])){
+                        b=i;
+                        break;
+                    }
+                }
+            }
+            if(b!=0) break;
+        }
+        if(b!=0) {
+            answer[0]=b%n+1;
+            answer[1]=(b+n)/n;
+        }
+        return answer;
+    }
+}
