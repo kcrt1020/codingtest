@@ -150,3 +150,23 @@ class Solution {
         return message.length()*2;
     }
 }
+
+
+// 최댓값 만들기 (1)
+
+class Solution {
+    public int solution(int[] numbers) {
+        int answer = 0;
+        int max=numbers[0];
+        int n=0;
+        for(int i=1; i<numbers.length; i++){
+            if(numbers[i]>max){
+                n=max;
+                max=numbers[i];
+            } else if(numbers[i]>n){
+                n=numbers[i];
+            }
+        }
+        return max*n;
+    }
+}
