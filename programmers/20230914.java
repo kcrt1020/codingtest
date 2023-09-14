@@ -49,3 +49,47 @@ class Solution {
     }
 
 }
+
+
+// 짝지어 제거하기
+
+class Solution
+{
+    public int solution(String s)
+    {
+        int answer = 0;
+        
+        Stack<Character> stack = new Stack<>();
+        stack.push(s.charAt(0));
+        for(int i=1; i<s.length(); i++){
+            if(!stack.isEmpty() && stack.peek()==s.charAt(i)) 
+            {
+                stack.pop();
+            }
+            else stack.push(s.charAt(i));
+        }
+        
+        if(stack.isEmpty()) answer=1;
+
+        return answer;
+    }
+}
+
+
+// 카펫
+
+class Solution {
+    public int[] solution(int brown, int yellow) {
+        int[] answer = new int[2];
+        int sum=brown+yellow;
+        for(int i=sum/2; i>2; i--){
+            if(sum%i==0 && ((i-2)*(sum/i-2))==yellow) {
+                answer[0]=i;
+                answer[1]=sum/i;
+                break;
+            }
+        }
+        
+        return answer;
+    }
+}
