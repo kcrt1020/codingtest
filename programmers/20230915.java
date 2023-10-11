@@ -9,7 +9,7 @@ class Solution {
             
             if(c>my_string.length()) break;
         }
-        return answer; 
+        return answer;  
     }
 }
 
