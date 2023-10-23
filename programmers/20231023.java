@@ -2,7 +2,6 @@
 
 class Solution {
     public long solution(int n) {
-        long answer = 0;
         long[] d = new long [n+1];
         
         if(n==1) return 1;
@@ -18,4 +17,4 @@ class Solution {
         
         return d[n];
     }
-}
+}   // 피보나치
