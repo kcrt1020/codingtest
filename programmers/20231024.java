@@ -48,3 +48,12 @@ class Solution {
         return answer;
     }
 }
+
+
+// 정수 부분
+
+class Solution {
+    public int solution(double flo) {
+        return (int)flo;
+    }
+}
