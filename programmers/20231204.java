@@ -1,11 +1,22 @@
-// 숫자 문자열과 영단어
+// 두 개 뽑아서 더하기
 
 class Solution {
-    public int solution(String s) {
-        String[] num = {"zero","one","two","three","four","five","six","seven","eight","nine"};
-        for(int i=0; i<num.length; i++){
-            s=s.replace(num[i],Integer.toString(i));
+    public int[] solution(int[] numbers) {
+        ArrayList<Integer> answerList = new ArrayList<Integer>();
+        Arrays.sort(numbers);
+        for(int i=0; i<numbers.length; i++){
+            if(i==0 ||  numbers[i]!=numbers[i-1]){
+                for(int j=i+1; j<numbers.length; j++){
+                    if(answerList.isEmpty() || answerList.get(answerList.size()-1)!=numbers[i]+numbers[j]) 
+                        answerList.add(numbers[i]+numbers[j]);
+                }
+            }
         }
-        return Integer.parseInt(s);
+        int[] answer = new int[answerList.size()];
+        for (int i = 0; i < answerList.size(); i++) {
+            answer[i] = answerList.get(i);
+        }
+
+        return answer;
     }
 }
