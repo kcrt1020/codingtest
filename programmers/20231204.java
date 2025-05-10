@@ -1,6 +1,10 @@
-// 두 개 뽑아서 더하기
+package programmers;
 
-class Solution {
+import java.util.ArrayList;
+import java.util.Arrays;
+
+// 두 개 뽑아서 더하기
+class _20231204 {
     public int[] solution(int[] numbers) {
         ArrayList<Integer> answerList = new ArrayList<Integer>();
         Arrays.sort(numbers);
@@ -18,5 +22,13 @@ class Solution {
         }
 
         return answer;
+    }
+
+    public static void main(String[] args) {
+        _20231204 sol = new _20231204();
+        int[] input = {2, 1, 3, 4, 1};
+        int[] result = sol.solution(input);
+
+        System.out.println("결과: " + Arrays.toString(result));
     }
 }
